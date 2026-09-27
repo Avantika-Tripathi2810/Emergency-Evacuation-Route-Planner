@@ -8,30 +8,32 @@
 
 ## Problem Statement
 
-During emergencies like fires, floods, or building collapses, people near the affected area often don't know which routes are still safe to use, and manual coordination of who should go where quickly breaks down once more than a handful of people are involved. Static maps and pre-planned evacuation routes don't account for the fact that hazards move, spread, and block specific roads dynamically — a route that was safe five minutes ago might now run straight through the danger zone.
+During emergencies like fires, floods, or building collapses, people near the affected area often don't know which routes are safe to use and manual coordination of who should go where quickly fails. Static maps and pre-planned evacuation routes do not consider hazard spreading and block specific roads, suddenly a route that was safe five minutes ago might now run straight through the danger zone.
 
-This project addresses a smaller, well-scoped version of that problem: given a city represented as a network of buildings, road junctions, and designated safe zones, how do we (a) find the least-risky route between any two points, (b) make that route automatically update as new hazards appear or clear, and (c) handle evacuating *many* people at once without overloading any single safe zone's capacity?
+This project aims to solve a smaller, well-defined part of the larger problem: a city is represented as a network of buildings, road junctions, and designated safe zones, how do we (a) find the least-risky route between any two points, (b) make that route automatically update as new hazards appear or clear, and (c) evacuate a bunch of people without having to worry about having all of them arrive at one safe zone at once.
+
 
 ## Scope of the Project
 
 **In scope:**
-- Representing a small city as a graph (nodes = locations, edges = roads with distance + hazard state).
-- Adding/removing hazards at runtime, with a severity-based radius that affects nearby roads.
-- Finding the cheapest route between two nodes using Dijkstra's algorithm, where "cost" factors in hazard risk, not just distance.
-- Automatically finding the nearest safe zone that still has free capacity.
-- Simulating evacuation of multiple buildings at once, respecting each safe zone's remaining capacity.
-- Visualizing the map, hazards, and routes with matplotlib.
-- Exporting simulation results to CSV.
+
+- A city of small size represented as a graph (nodes = locations, edges = roads with distance + hazard state).
+- Adding/removing hazards at runtime, with a radius that is based on severity and that impacts nearby roads.
+- Pathfinding with Dijkstra's algorithm between two nodes which use the cheapest path, including the risk of a hazard.
+- Automatic location of the nearest safe area with room.
+- Simultaneous evacuation of several buildings, taking into account the remaining capacity of each safe zone.
+- Plotting maps, hazards, and routes in matplotlib.Using matplotlib to plot maps, hazards, and routes.
+- Exporting simulation results to CSV file.
 
 **Out of scope (for this version):**
 - Real-world map data / GPS integration.
-- Persistent storage across sessions (a database).
+- Keeping data across sessions (a database).
 - A graphical or web-based user interface — this is a CLI tool.
-- Multi-hazard interaction modelling beyond simple radius-based severity (e.g., hazard spread over time).
+- Modelling the interactions between multiple hazards.
 
 ## Target Users
 
-- Emergency-response planners or students studying disaster management, who want a lightweight tool to test "what if a hazard blocks this road" scenarios on a sample map.
+- Those interested in emergency response planning or in disaster management courses, who wish to have a lightweight tool to test the "what if a hazard blocks this road" scenarios using a sample map.
 - Anyone learning graph algorithms (Dijkstra specifically) who wants to see the algorithm applied to a concrete, visual problem rather than an abstract array of numbers.
 - Academically: this doubles as a demonstration of applying core Python + data structures + algorithms concepts (graphs, priority queues, greedy allocation) to a real-world-flavoured scenario, per the CSE1021 project brief.
 
