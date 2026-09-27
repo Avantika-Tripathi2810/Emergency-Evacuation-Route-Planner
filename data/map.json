@@ -1,0 +1,20 @@
+{
+  "nodes": [
+    {"node_id": "B1", "name": "Fish Market", "x": 5, "y": 0, "node_type": "building", "capacity": 150},
+    {"node_id": "B2", "name": "Residential Area", "x": 15, "y": 2, "node_type": "building", "capacity": 400},
+    {"node_id": "I1", "name": "Coastal Junction", "x": 10, "y": 1, "node_type": "intersection"},
+    {"node_id": "I2", "name": "Hillside Junction", "x": 20, "y": 15, "node_type": "intersection"},
+    {"node_id": "S1", "name": "Evacuation Tower", "x": 8, "y": 3, "node_type": "safe_zone", "capacity": 200},
+    {"node_id": "S2", "name": "Community Center", "x": 30, "y": 15, "node_type": "safe_zone", "capacity": 500},
+    {"node_id": "S3", "name": "Hilltop Shrine", "x": 15, "y": 25, "node_type": "safe_zone", "capacity": 800}
+  ],
+  "edges": [
+    {"edge_id": "E1", "from_id": "B1", "to_id": "I1", "distance": 8 },
+    {"edge_id": "E2", "from_id": "B2", "to_id": "I1", "distance": 9 },
+    {"edge_id": "E3", "from_id": "I1", "to_id": "S1", "distance": 5 },
+    {"edge_id": "E4", "from_id": "I1", "to_id": "I2", "distance": 15},
+    {"edge_id": "E5", "from_id": "B2", "to_id": "I2", "distance": 14},
+    {"edge_id": "E6", "from_id": "I2", "to_id": "S2", "distance": 8 },
+    {"edge_id": "E7", "from_id": "I2", "to_id": "S3", "distance": 12}
+  ]
+}
